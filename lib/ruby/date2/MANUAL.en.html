@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Date</title>
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+<link href="default.css" type="text/css" rel="stylesheet" />
+<link href="index.html" rel="index" />
+<link href="mailto:tadf@funaba.org" rev="made" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">date2 - An alternative date class</a></h1><!-- RDLabel: "date2 - An alternative date class" -->
+<h2><a name="label-1" id="label-1">Date</a></h2><!-- RDLabel: "Date" -->
+<h3><a name="label-2" id="label-2">Terms and definitions</a></h3><!-- RDLabel: "Terms and definitions" -->
+<p>Some terms and definitions are based on ISO 8601 and JIS X 0301.</p>
+<h4><a name="label-3" id="label-3">calendar date</a></h4><!-- RDLabel: "calendar date" -->
+<p>The calendar date is a particular day of a calendar year, identified
+by its ordinal number within a calendar month within that year.</p>
+<h4><a name="label-4" id="label-4">ordinal date</a></h4><!-- RDLabel: "ordinal date" -->
+<p>The ordinal date is a particular day of a calendar year identified by
+its ordinal number within the year.</p>
+<h4><a name="label-5" id="label-5">week date</a></h4><!-- RDLabel: "week date" -->
+<p>The week date is a date identified by calendar week and day numbers.</p>
+<p>The calendar week is a seven day period within a calendar year,
+starting on a Monday and identified by its ordinal number within the
+year; the first calendar week of the year is the one that includes the
+first Thursday of that year.  In the Gregorian calendar, this is
+equivalent to the week which includes January 4.</p>
+<h4><a name="label-6" id="label-6">julian day number</a></h4><!-- RDLabel: "julian day number" -->
+<p>The Julian day number is in elapsed days since noon (Greenwich mean
+time) on January 1, 4713 BCE (in the Julian calendar).</p>
+<p>In this document, the astronomical Julian day number is same as the
+original Julian day number.  And the chronological Julian day number
+is a variation of the Julian day number.  Its days begin at midnight
+on local time.</p>
+<p>In this document, when the term "Julian day number" simply appears, it
+just refers to "chronological Julian day number", not the original.</p>
+<h4><a name="label-7" id="label-7">modified julian day number</a></h4><!-- RDLabel: "modified julian day number" -->
+<p>The modified Julian day number is in elapsed days since midnight
+(Coordinated universal time) on November 17, 1858 CE (in the Gregorian
+calendar).</p>
+<p>In this document, the astronomical modified Julian day number is same
+as the original modified Julian day number.  And the chronological
+modified Julian day number is a variation of the modified Julian day
+number.  Its days begin at midnight on local time.</p>
+<p>In this document, when the term "modified Julian day number" simply
+appears, it just refers to "chronological modified Julian day number",
+not the original.</p>
+<h3><a name="label-8" id="label-8">Super Class</a></h3><!-- RDLabel: "Super Class" -->
+<p>Object</p>
+<h3><a name="label-9" id="label-9">Included Modules</a></h3><!-- RDLabel: "Included Modules" -->
+<p>Comparable</p>
+<h3><a name="label-10" id="label-10">Class Methods</a></h3><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-11" id="label-11">civil([year[, mon[, mday[, start]]]])</a></dt><!-- RDLabel: "civil([year[, mon[, mday[, start]]]])" -->
+<dt><a name="label-12" id="label-12">new([year[, mon[, mday[, start]]]])</a></dt><!-- RDLabel: "new([year[, mon[, mday[, start]]]])" -->
+<dd>
+<p>Creates a date object denoting the given calendar date.</p>
+<p>In this class, BCE years are counted astronomically.
+Thus, the year before the year 1 is the year zero,
+and the year preceding the year zero is the year -1.
+The month and the day of month should be a negative or a positive number
+(reverse order when negative).
+They should not be zero.</p>
+<p>The last argument should be a Julian day number
+which denotes the first day of the Gregorian calendar.
+You can also give Date::GREGORIAN which mean
+the proleptic Gregorian calendar,
+and Date::JULIAN which mean the proleptic Julian calendar.
+Default is Date::ITALY (October 15, 1582).</p>
+<p>See also jd.</p>
+</dd>
+<dt><a name="label-13" id="label-13">commercial([cwyear[, cweek[, cwday[, start]]]])</a></dt><!-- RDLabel: "commercial([cwyear[, cweek[, cwday[, start]]]])" -->
+<dd>
+<p>Creates a date object denoting the given week date.</p>
+<p>The week and the day of week should be a negative or a positive number
+(reverse order when negative).
+They should not be zero.</p>
+<p>This method does not accept dates before the day of calendar reform.</p>
+<p>See also jd and new.</p>
+</dd>
+<dt><a name="label-14" id="label-14">jd([jd[, start]])</a></dt><!-- RDLabel: "jd([jd[, start]])" -->
+<dd>
+<p>Creates a date object denoting the given Julian day number.</p>
+<p>In this class, some important methods do not accept
+negative Julian day numbers.</p>
+<p>See also new.</p>
+</dd>
+<dt><a name="label-15" id="label-15">nth_kday([year[, mon[, n[, k[, start]]]]])</a></dt><!-- RDLabel: "nth_kday([year[, mon[, n[, k[, start]]]]])" -->
+<dd>
+Returns a date object denoting
+the given Nth (-5 to 5, except zero) Kday (0-6)
+in the given month of year.
+</dd>
+<dt><a name="label-16" id="label-16">ordinal([year[, yday[, start]]])</a></dt><!-- RDLabel: "ordinal([year[, yday[, start]]])" -->
+<dd>
+<p>Creates a date object denoting the given ordinal date.</p>
+<p>The day of year should be a negative or a positive number
+(reverse order when negative).
+It should not be zero.</p>
+<p>See also jd and new.</p>
+</dd>
+<dt><a name="label-17" id="label-17">parse([str[, complete[, start]]])</a></dt><!-- RDLabel: "parse([str[, complete[, start]]])" -->
+<dd>
+<p>Parses the given representation of dates and times,
+and creates a date object.</p>
+<p>If the optional second argument is true and
+the detected year is in the range "00" to "99",
+considers the year a 2-digit form and makes it full.
+Default is false.</p>
+<p>_parse is also available.
+This method is similar to parse,
+but returns a hash which contain detected elements,
+not creates a date object.</p>
+</dd>
+<dt><a name="label-18" id="label-18">strptime([str[, format[, start]]])</a></dt><!-- RDLabel: "strptime([str[, format[, start]]])" -->
+<dd>
+<p>Parses the given representation of dates and times
+with the given template, and creates a date object.</p>
+<p>For example, the following formats are acceptable:</p>
+<pre>%Y-%m-%d
+%Y-%j
+%G-W%V-%u
+%s
+%Q</pre>
+<p>_strptime is also available.
+This method is similar to strptime,
+but returns a hash which contain detected elements,
+not creates a date object.</p>
+<p>See also strptime(3) and strftime.</p>
+</dd>
+<dt><a name="label-19" id="label-19">today([start])</a></dt><!-- RDLabel: "today([start])" -->
+<dd>
+Creates a date object denoting the present day.
+</dd>
+<dt><a name="label-20" id="label-20">valid_civil? (year, mon, mday[, start])</a></dt><!-- RDLabel: "valid_civil? (year, mon, mday[, start])" -->
+<dt><a name="label-21" id="label-21">valid_date? (year, mon, mday[, start])</a></dt><!-- RDLabel: "valid_date? (year, mon, mday[, start])" -->
+<dd>
+<p>Returns true if the given calendar date is valid,
+and false if not.</p>
+<p>See also jd and civil.</p>
+</dd>
+<dt><a name="label-22" id="label-22">valid_commercial? (cwyear, cweek, cwday[, start])</a></dt><!-- RDLabel: "valid_commercial? (cwyear, cweek, cwday[, start])" -->
+<dd>
+<p>Returns true if the given week date is valid,
+and false if not.</p>
+<p>See also jd and commercial.</p>
+</dd>
+<dt><a name="label-23" id="label-23">valid_jd? (jd[, start])</a></dt><!-- RDLabel: "valid_jd? (jd[, start])" -->
+<dd>
+<p>Just returns true.</p>
+<p>It's nonsense, but is for symmetry.</p>
+<p>See also jd.</p>
+</dd>
+<dt><a name="label-24" id="label-24">valid_ordinal? (year, yday[, start])</a></dt><!-- RDLabel: "valid_ordinal? (year, yday[, start])" -->
+<dd>
+<p>Returns true if the given ordinal date is valid,
+and false if not.</p>
+<p>See also jd and ordinal.</p>
+</dd>
+</dl>
+<h3><a name="label-25" id="label-25">Methods</a></h3><!-- RDLabel: "Methods" -->
+<dl>
+<dt><a name="label-26" id="label-26">self + n</a></dt><!-- RDLabel: "self + n" -->
+<dd>
+Returns a date object pointing n days after self.
+The n should be a numeric value.
+</dd>
+<dt><a name="label-27" id="label-27">self - x</a></dt><!-- RDLabel: "self - x" -->
+<dd>
+Returns the difference between the two dates if the x is a date object.
+If the x is a numeric value, it returns
+a date object pointing x days before self.
+</dd>
+<dt><a name="label-28" id="label-28">self &lt;&lt; n</a></dt><!-- RDLabel: "self << n" -->
+<dd>
+Returns a date object pointing n months before self.
+The n should be a numeric value.
+</dd>
+<dt><a name="label-29" id="label-29">self &lt;=&gt; other</a></dt><!-- RDLabel: "self <=> other" -->
+<dd>
+Compares the two dates and returns -1, zero or 1.
+The other should be a date object or
+a numeric value as an astronomical Julian day number.
+</dd>
+<dt><a name="label-30" id="label-30">self === other</a></dt><!-- RDLabel: "self === other" -->
+<dd>
+Returns true if they are the same day.
+</dd>
+<dt><a name="label-31" id="label-31">self &gt;&gt; n</a></dt><!-- RDLabel: "self >> n" -->
+<dd>
+Returns a date object pointing n months after self.
+The n should be a numeric value.
+</dd>
+<dt><a name="label-32" id="label-32">asctime</a></dt><!-- RDLabel: "asctime" -->
+<dt><a name="label-33" id="label-33">ctime</a></dt><!-- RDLabel: "ctime" -->
+<dd>
+Returns a string in asctime(3) format (but without "\n\0" at the end).
+</dd>
+<dt><a name="label-34" id="label-34">cwday</a></dt><!-- RDLabel: "cwday" -->
+<dd>
+Returns the day of calendar week (1-7, Monday is 1).
+</dd>
+<dt><a name="label-35" id="label-35">cweek</a></dt><!-- RDLabel: "cweek" -->
+<dd>
+Returns the calendar week number (1-53).
+</dd>
+<dt><a name="label-36" id="label-36">cwyear</a></dt><!-- RDLabel: "cwyear" -->
+<dd>
+Returns the calendar week based year.
+</dd>
+<dt><a name="label-37" id="label-37">downto(min){|date| ...}</a></dt><!-- RDLabel: "downto(min){|date| ...}" -->
+<dd>
+This method is equivalent to <code>step(min, -1){|date| ...}</code>.
+</dd>
+<dt><a name="label-38" id="label-38">england</a></dt><!-- RDLabel: "england" -->
+<dd>
+This method is equivalent to <code>new_start(Date::ENGLAND)</code>.
+</dd>
+<dt><a name="label-39" id="label-39">gregorian</a></dt><!-- RDLabel: "gregorian" -->
+<dd>
+This method is equivalent to <code>new_start(Date::GREGORIAN)</code>.
+</dd>
+<dt><a name="label-40" id="label-40">iso8601</a></dt><!-- RDLabel: "iso8601" -->
+<dt><a name="label-41" id="label-41">rfc3339</a></dt><!-- RDLabel: "rfc3339" -->
+<dd>
+Returns a string in an ISO 8601 format
+(This method doesn't use the expanded representations).
+</dd>
+<dt><a name="label-42" id="label-42">italy</a></dt><!-- RDLabel: "italy" -->
+<dd>
+This method is equivalent to <code>new_start(Date::ITALY)</code>.
+</dd>
+<dt><a name="label-43" id="label-43">jd</a></dt><!-- RDLabel: "jd" -->
+<dd>
+<p>Returns the Julian day number.
+It has no time of the day.</p>
+<p>ajd is also available.
+This method is similar to jd,
+but returns the astronomical Julian day number.
+It may have time of the day.</p>
+</dd>
+<dt><a name="label-44" id="label-44">jisx0301</a></dt><!-- RDLabel: "jisx0301" -->
+<dd>
+Returns a string in a JIX X 0301 format.
+However this returns an ISO 8601 format if before Meiji era.
+Anyhow this do not use luni-solar calendar even if Meiji 6.
+</dd>
+<dt><a name="label-45" id="label-45">julian</a></dt><!-- RDLabel: "julian" -->
+<dd>
+This method is equivalent to <code>new_start(Date::JULIAN)</code>.
+</dd>
+<dt><a name="label-46" id="label-46">leap?</a></dt><!-- RDLabel: "leap?" -->
+<dd>
+Returns true if the year is a leap year.
+</dd>
+<dt><a name="label-47" id="label-47">mday</a></dt><!-- RDLabel: "mday" -->
+<dt><a name="label-48" id="label-48">day</a></dt><!-- RDLabel: "day" -->
+<dd>
+Returns the day of month (1-31).
+</dd>
+<dt><a name="label-49" id="label-49">mjd</a></dt><!-- RDLabel: "mjd" -->
+<dd>
+<p>Returns the modified Julian day number.
+It has no time of the day.</p>
+<p>amjd is also available.
+This method is similar to mjd,
+but returns the astronomical modified Julian day number.
+It may have time of the day.</p>
+</dd>
+<dt><a name="label-50" id="label-50">mon</a></dt><!-- RDLabel: "mon" -->
+<dt><a name="label-51" id="label-51">month</a></dt><!-- RDLabel: "month" -->
+<dd>
+Returns the month (1-12).
+</dd>
+<dt><a name="label-52" id="label-52">new_start([start])</a></dt><!-- RDLabel: "new_start([start])" -->
+<dd>
+<p>Duplicates self and resets the its first day of the Gregorian calendar.
+Default is Date::ITALY (October 15, 1582).</p>
+<p>See also new.</p>
+</dd>
+<dt><a name="label-53" id="label-53">next_day([n])</a></dt><!-- RDLabel: "next_day([n])" -->
+<dd>
+Returns a date object denoting the following day.
+</dd>
+<dt><a name="label-54" id="label-54">next_month([n])</a></dt><!-- RDLabel: "next_month([n])" -->
+<dd>
+Returns a date object denoting the following month.
+</dd>
+<dt><a name="label-55" id="label-55">next_year([n])</a></dt><!-- RDLabel: "next_year([n])" -->
+<dd>
+Returns a date object denoting the following year.
+</dd>
+<dt><a name="label-56" id="label-56">nth_kday?(n, k)</a></dt><!-- RDLabel: "nth_kday?(n, k)" -->
+<dd>
+Returns true if the day is an Nth (-5 to 5, except zero) Kday (0-6).
+</dd>
+<dt><a name="label-57" id="label-57">prev_day([n])</a></dt><!-- RDLabel: "prev_day([n])" -->
+<dd>
+Returns a date object denoting the previous day.
+</dd>
+<dt><a name="label-58" id="label-58">prev_month([n])</a></dt><!-- RDLabel: "prev_month([n])" -->
+<dd>
+Returns a date object denoting the previous month.
+</dd>
+<dt><a name="label-59" id="label-59">prev_year([n])</a></dt><!-- RDLabel: "prev_year([n])" -->
+<dd>
+Returns a date object denoting the previous year.
+</dd>
+<dt><a name="label-60" id="label-60">rfc2822</a></dt><!-- RDLabel: "rfc2822" -->
+<dt><a name="label-61" id="label-61">rfc822</a></dt><!-- RDLabel: "rfc822" -->
+<dd>
+Returns a string in an RFC 2822 format.
+</dd>
+<dt><a name="label-62" id="label-62">start</a></dt><!-- RDLabel: "start" -->
+<dd>
+<p>Returns a Julian day number
+denoting the first day of the Gregorian calendar.</p>
+<p>See also new.</p>
+</dd>
+<dt><a name="label-63" id="label-63">step(limit[, step]){|date| ...}</a></dt><!-- RDLabel: "step(limit[, step]){|date| ...}" -->
+<dd>
+Iterates evaluation of the given block, which takes a date object.
+The limit should be a date object, and the step should be a nonzero value.
+</dd>
+<dt><a name="label-64" id="label-64">strftime([format])</a></dt><!-- RDLabel: "strftime([format])" -->
+<dd>
+<p>Formats the date with the given template.
+The following conversion specifications are supported:</p>
+<p>%A, %a, %B, %b, %C, %c, %D, %d, %e, %F, %G, %g, %H, %h, %I, %j, %k,
+%L, %l, %M, %m, %N, %n, %P, %p, %Q, %R, %r, %S, %s, %T, %t, %U, %u,
+%V, %v, %W, %w, %X, %x, %Y, %y, %Z, %z, %%, %+</p>
+<p>See also strftime(3) and strptime.</p>
+</dd>
+<dt><a name="label-65" id="label-65">succ</a></dt><!-- RDLabel: "succ" -->
+<dt><a name="label-66" id="label-66">next</a></dt><!-- RDLabel: "next" -->
+<dd>
+Returns a date object denoting the following day.
+</dd>
+<dt><a name="label-67" id="label-67">to_s</a></dt><!-- RDLabel: "to_s" -->
+<dd>
+Returns a string in an ISO 8601 format
+(This method doesn't use the expanded representations).
+</dd>
+<dt><a name="label-68" id="label-68">upto(max){|date| ...}</a></dt><!-- RDLabel: "upto(max){|date| ...}" -->
+<dd>
+This method is equivalent to <code>step(max, 1){|date| ...}</code>.
+</dd>
+<dt><a name="label-69" id="label-69">wday</a></dt><!-- RDLabel: "wday" -->
+<dd>
+Returns the day of week (0-6, Sunday is zero).
+</dd>
+<dt><a name="label-70" id="label-70">yday</a></dt><!-- RDLabel: "yday" -->
+<dd>
+Returns the day of year (1-366).
+</dd>
+<dt><a name="label-71" id="label-71">year</a></dt><!-- RDLabel: "year" -->
+<dd>
+Returns the year.
+</dd>
+</dl>
+<h2><a name="label-72" id="label-72">DateTime</a></h2><!-- RDLabel: "DateTime" -->
+<h3><a name="label-73" id="label-73">Super Class</a></h3><!-- RDLabel: "Super Class" -->
+<p>Date</p>
+<h3><a name="label-74" id="label-74">Class Methods</a></h3><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-75" id="label-75">civil([year[, mon[, mday[, hour[, min[, sec[, offset[, start]]]]]]]])</a></dt><!-- RDLabel: "civil([year[, mon[, mday[, hour[, min[, sec[, offset[, start]]]]]]]])" -->
+<dt><a name="label-76" id="label-76">new([year[, mon[, mday[, hour[, min[, sec[, offset[, start]]]]]]]])</a></dt><!-- RDLabel: "new([year[, mon[, mday[, hour[, min[, sec[, offset[, start]]]]]]]])" -->
+<dd>
+Creates a date-time object denoting the given calendar date.
+</dd>
+<dt><a name="label-77" id="label-77">commercial([cwyear[, cweek[, cwday[, hour[, min[, sec[, offset[, start]]]]]]]])</a></dt><!-- RDLabel: "commercial([cwyear[, cweek[, cwday[, hour[, min[, sec[, offset[, start]]]]]]]])" -->
+<dd>
+Creates a date-time object denoting the given week date.
+</dd>
+<dt><a name="label-78" id="label-78">jd([jd[, hour[, min[, sec[, offset[, start]]]]]])</a></dt><!-- RDLabel: "jd([jd[, hour[, min[, sec[, offset[, start]]]]]])" -->
+<dd>
+Creates a date-time object denoting
+the given Julian day number.
+</dd>
+<dt><a name="label-79" id="label-79">now([start])</a></dt><!-- RDLabel: "now([start])" -->
+<dd>
+Creates a date-time object denoting the present time.
+</dd>
+<dt><a name="label-80" id="label-80">nth_kday([year[, mon[, n[, k, [, hour[, min[, sec[, offset[, start]]]]]]]]])</a></dt><!-- RDLabel: "nth_kday([year[, mon[, n[, k, [, hour[, min[, sec[, offset[, start]]]]]]]]])" -->
+<dd>
+Returns a date object denoting
+the given Nth (-5 to 5, except zero) Kday (0-6)
+in the given month of year.
+</dd>
+<dt><a name="label-81" id="label-81">ordinal([year[, yday[, hour[, min[, sec[, offset[, start]]]]]]])</a></dt><!-- RDLabel: "ordinal([year[, yday[, hour[, min[, sec[, offset[, start]]]]]]])" -->
+<dd>
+Creates a date-time object denoting the given ordinal date.
+</dd>
+</dl>
+<h3><a name="label-82" id="label-82">Methods</a></h3><!-- RDLabel: "Methods" -->
+<dl>
+<dt><a name="label-83" id="label-83">hour</a></dt><!-- RDLabel: "hour" -->
+<dd>
+Returns the hour (0-23).
+</dd>
+<dt><a name="label-84" id="label-84">iso8601([n])</a></dt><!-- RDLabel: "iso8601([n])" -->
+<dt><a name="label-85" id="label-85">rfc3339([n])</a></dt><!-- RDLabel: "rfc3339([n])" -->
+<dd>
+Returns a string in an ISO 8601 format.
+</dd>
+<dt><a name="label-86" id="label-86">jisx0301([n])</a></dt><!-- RDLabel: "jisx0301([n])" -->
+<dd>
+Returns a string in a JIX X 0301 format.
+</dd>
+<dt><a name="label-87" id="label-87">min</a></dt><!-- RDLabel: "min" -->
+<dd>
+Returns the minute (0-59).
+</dd>
+<dt><a name="label-88" id="label-88">new_offset([offset])</a></dt><!-- RDLabel: "new_offset([offset])" -->
+<dd>
+<p>Duplicates self and resets the its offset.
+Default is zero (UTC).</p>
+<p>See also new.</p>
+</dd>
+<dt><a name="label-89" id="label-89">offset</a></dt><!-- RDLabel: "offset" -->
+<dd>
+Returns the offset.
+</dd>
+<dt><a name="label-90" id="label-90">sec</a></dt><!-- RDLabel: "sec" -->
+<dd>
+Returns the second (0-59).
+</dd>
+<dt><a name="label-91" id="label-91">zone</a></dt><!-- RDLabel: "zone" -->
+<dd>
+Returns the timezone.
+</dd>
+</dl>
+<h1><a name="label-92" id="label-92">date/holiday - determination of secular and religious holidays</a></h1><!-- RDLabel: "date/holiday - determination of secular and religious holidays" -->
+<h2><a name="label-93" id="label-93">Date</a></h2><!-- RDLabel: "Date" -->
+<h3><a name="label-94" id="label-94">Class Methods</a></h3><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-95" id="label-95">gregorian_easter(year[, start])</a></dt><!-- RDLabel: "gregorian_easter(year[, start])" -->
+<dt><a name="label-96" id="label-96">easter(year[, start])</a></dt><!-- RDLabel: "easter(year[, start])" -->
+<dd>
+Returns a date object denoting
+the Easter sunday in the given Gregorian year.
+</dd>
+<dt><a name="label-97" id="label-97">julian_easter(year[, start])</a></dt><!-- RDLabel: "julian_easter(year[, start])" -->
+<dd>
+Returns a date object denoting
+the Easter sunday in the given Julian year.
+</dd>
+</dl>
+<h3><a name="label-98" id="label-98">Methods</a></h3><!-- RDLabel: "Methods" -->
+<dl>
+<dt><a name="label-99" id="label-99">easter?</a></dt><!-- RDLabel: "easter?" -->
+<dd>
+Returns true if the day is an Easter sunday.
+</dd>
+<dt><a name="label-100" id="label-100">national_holiday?</a></dt><!-- RDLabel: "national_holiday?" -->
+<dd>
+Returns true if the day is a Japanese national holiday.
+</dd>
+<dt><a name="label-101" id="label-101">old_national_holiday?</a></dt><!-- RDLabel: "old_national_holiday?" -->
+<dd>
+Returns true if the day is an old Japanese national holiday.
+This is still experimental.
+</dd>
+</dl>
+<h1><a name="label-102" id="label-102">parsedate - date and time parsing</a></h1><!-- RDLabel: "parsedate - date and time parsing" -->
+<h2><a name="label-103" id="label-103">ParseDate</a></h2><!-- RDLabel: "ParseDate" -->
+<h3><a name="label-104" id="label-104">Module Functions</a></h3><!-- RDLabel: "Module Functions" -->
+<dl>
+<dt><a name="label-105" id="label-105">parsedate(str[, complete])</a></dt><!-- RDLabel: "parsedate(str[, complete])" -->
+<dd>
+<p>Parses the given representation of dates and times,
+and returns an array which contain detected elements
+(year, month, day of month, hour, minute, second, timezone and day of week).</p>
+<p>If the optional second argument is true and
+the detected year is in the range 00 to 99,
+considers the year a 2-digit form and makes it full.
+Default is false.</p>
+<p>parsedate can handle various formats.
+For example, the following representaions are acceptable:</p>
+<pre>Sat
+Saturday
+1999-08-28
+21:45:09
+09:45:09 PM
+1999-08-28T21:45:09+0900
+19990828 214509
+H11.08.28T21:45:09Z
+Sat Aug 28 21:45:09 1999
+Sat Aug 28 21:45:09 JST 1999
+Sat, 28 Aug 1999 21:45:09 -0400
+Saturday, 28-Aug-99 21:45:09 GMT
+08/28/1999
+1999/08/28</pre>
+<p>See also Date::parse.</p>
+</dd>
+</dl>
+
+</body>
+</html>

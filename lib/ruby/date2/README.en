@@ -1,0 +1,80 @@
+A "Date" class
+==============
+
+date2 is an alternative date class for an object‐oriented script‐
+ing language Ruby.
+
+For more information, see the file MANUAL.en.
+
+
+Install
+‐‐‐‐‐‐‐
+
+Use the script "install.rb".
+
+  $ ruby install.rb config
+  $ ruby install.rb setup
+ ($ su)
+  # ruby install.rb install
+
+For more information, type "ruby install.rb ‐‐help".
+
+
+Acknowledgments
+‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐
+
+I wish to thank Yasuo Ohba who wrote the first date class in Ru‐
+by.  The calendar conversions are based on Jean Meeus’ algo‐
+rithms.  Michael Griebling wrote some calendrical code in Oberon
+which accepts any day of calendar reform.  I thank Scott E. Lee
+for his comments on the previous documents.
+
+
+References
+‐‐‐‐‐‐‐‐‐‐
+
+Jean Meeus, Astronomical Algorithms, Willmann‐Bell,Inc., 1991.
+
+Nachum Dershowitz and Edward M. Reingold, ‘‘Calendrical Calcula‐
+tions’’, Software‐‐‐Practice & Experience, vol. 20, no. 9 (Sept.
+1990), pp. 899‐‐928.
+
+ISO 8601:1988, Data elements and interchange formats ‐‐‐ Informa‐
+tion interchange ‐‐‐ Representation of dates and times.
+
+ISO 8601:2000, Data elements and interchange formats ‐‐‐ Informa‐
+tion interchange ‐‐‐ Representation of dates and times.
+
+JIS X 0301‐1992 hizuke oyobi jikoku no hyoki (Representation of
+dates and times)
+
+JIS X 0301:2002 jyoho‐koukan no tame no deta‐youso oyobi koukan‐
+keishiki ‐‐‐ hizuke oyobi jikoku no hyoki (Data elements and in‐
+terchange formats ‐‐‐ Infomation interchange ‐‐‐ Representation
+of dates and times)
+
+koyomi‐keisan kenkyu‐kai, shin koyomi benricho, koseisha ko‐
+seikaku, 1991
+
+kokumin no shukujitsu ni kansuru horitsu (showa 23 nen 7 gatsu 20
+ka horitsu dai 178 go ‐ heisei 13 nen 6 gatsu 22 nichi kaisei)
+
+kenkoku‐kinen‐no‐hi tonaru hi wo sadameru seirei (showa 41 nen 12
+gatsu 9 ka gogai seirei dai 376 go)
+
+showa‐tenno no taiso‐no‐rei no okonawareru hi wo kyujitsu tosuru
+horitsu (heisei gannen 2 gatsu 17 nichi horitsu dai 4 go)
+
+sokui‐rei‐seiden‐no‐gi no okonawareru hi wo kyujitsu tosuru ko‐
+ritsu (heisei 2 nen 6 gatsu 1 chi horitsu dai 24 go)
+
+kotaishi norihito‐shinno no kekkon‐no‐gi no okonawareru hi wo
+kyujitsu tosuru horitsu (heisei 5 nen 4 gatsu 30 nichi horitsu
+dai 32 go)
+
+nichigai associates, 20 seiki‐reki, nichigai associates 1998
+
+
+Tadayoshi Funaba
+mailto:tadf@funaba.org
+http://www.funaba.org/en/

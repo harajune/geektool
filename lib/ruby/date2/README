@@ -1,0 +1,67 @@
+日付計算クラス
+==============
+
+date2 はオブジェクト指向スクリプト言語 Ruby のための、もうひとつの日付計
+算クラスです。
+
+くわしくは、ファイル MANUAL を参照してください。
+
+
+インストール
+------------
+
+スクリプト "install.rb" をつかいます。
+
+  $ ruby install.rb config
+  $ ruby install.rb setup
+ ($ su)
+  # ruby install.rb install
+
+くわしくは、"ruby install.rb --help" としてください。
+
+
+謝辞
+----
+
+Ruby で最初の日付計算クラスを書いた大庭康生氏に感謝します。こよみ変換は
+Jean Meeus 氏の算法に基づいています。Michael Griebling 氏は Oberon でこよ
+みについてのコードを書き、それは改暦日を可変にする方法を与えてくれました。
+
+
+参考文献
+--------
+
+Jean Meeus, Astronomical Algorithms, Willmann-Bell,Inc., 1991.
+
+Nachum Dershowitz and Edward M. Reingold, ``Calendrical Calculations'',
+Software---Practice & Experience, vol. 20, no. 9 (Sept. 1990), pp.
+899--928.
+
+ISO 8601:1988, Data elements and interchange formats --- Information in-
+terchange --- Representation of dates and times.
+
+ISO 8601:2000, Data elements and interchange formats --- Information in-
+terchange --- Representation of dates and times.
+
+JIS X 0301-1992 日付及び時刻の表記
+
+JIS X 0301:2002 情報交換のためのデータ要素及び交換形式―日付及び時刻の表記
+
+暦計算研究会編「新こよみ便利帳」恒星社厚生閣 1991
+
+国民の祝日に関する法律 (昭和23年7月20日法律第178号 - 平成13年6月22日改正)
+
+建国記念の日となる日を定める政令 (昭和41年12月9日号外政令第376号)
+
+昭和天皇の大喪の礼の行われる日を休日とする法律 (平成元年2月17日法律第4号)
+
+即位礼正殿の儀の行われる日を休日とする法律 (平成2年6月1日法律第24号)
+
+皇太子徳仁親王の結婚の儀の行われる日を休日とする法律 (平成5年4月30日法律第32号)
+
+日外アソシエーツ編集部編「20世紀暦」日外アソシエーツ 1998
+
+
+舟迫忠佳 (ふなばただよし)
+mailto:tadf@funaba.org
+http://www.funaba.org/
