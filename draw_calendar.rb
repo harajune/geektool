@@ -42,7 +42,7 @@ context.select_font_face("Arial")
 context.set_font_size(120)
 context.move_to(0, 100)
 
-context.show_text(sprintf("%02d", today.month))
+context.show_text(sprintf("%02d", today.day))
 
 # 月名
 context.set_font_size(30)
