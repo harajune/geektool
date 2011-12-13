@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 
 root_dir = File.dirname(File.expand_path(__FILE__))
@@ -66,7 +67,7 @@ calendar_offset = 150
 
 context.set_font_size(30)
 
-(days[today.month]-1).times do |ind|
+(days[today.month]).times do |ind|
   offsetw = (ind + first_day_of_month) % 7
   offseth = (ind + first_day_of_month) / 7
 
