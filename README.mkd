@@ -1,0 +1,25 @@
+What is this
+=================
+
+geek tool scripts
+
+- draw_calendar.rb
+    - draw calendar image
+- network.sh
+    - show ip address
+
+
+Requirement
+==================
+
+- ruby (1.9.x)
+    - cairo gem
+- geektool
+
+
+Screenshot
+==================
+
+![screen shot](http://gyazo.gijutsuya.jp/data/c49fbf5a723c9a80e02d4cc07edcc8c4.png)
+
+
